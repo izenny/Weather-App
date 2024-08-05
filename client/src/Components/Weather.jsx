@@ -73,7 +73,7 @@ const Weather = () => {
           <p className="text-lg">{error ? error : "Loading..."}</p>
         </div>
       )}
-      <div className="bg-slate-400 flex flex-col justify-center p-5 items-center  h-2/3">
+      <div className=" flex flex-col justify-center p-5 items-center  h-2/3">
         <div className="w-full m-5 flex flex-col justify-center items-center">
           <ul className="flex justify-around">
             <li>now</li>
