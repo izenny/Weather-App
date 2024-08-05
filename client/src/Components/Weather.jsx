@@ -29,7 +29,7 @@ const Weather = () => {
   }, [location]);
   useEffect(()=>{
     const fetchHistory = async()=>{
-      const history = await fetchHistory(date)
+      const history = await fetchHistory()
     }
   })
 
@@ -41,10 +41,16 @@ const Weather = () => {
   };
 
   return (
-    <div className="bg-slate-300 h-full md:h-2/3 flex-col md:flex-row flex justify-center items-center">
+    <div className=" h-full md:h-2/3 rounded-3xl flex-col md:flex-row flex justify-center items-center " 
+    style={{
+      backgroundImage: "url('/public/bg.jpg')",
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}>
       {weatherData ? (
-        <div className="bg-orange-200 font-mono text-orange-600 flex flex-col w-3/4 h-1/3 md:h-2/3 md:w-1/3 justify-around p-3 items-center m-5 rounded-3xl">
-          <h2 className="text-2xl font-serif">Today</h2>
+        <div className="bg-blue-100  font-mono text-orange-600 flex flex-col w-3/4 h-1/3 md:h-2/3 md:w-1/3 justify-around p-3 items-center m-5 rounded-3xl">
+          <h2 className="text-3xl font-serif">Today</h2>
           <div className="flex items-center">
             <img
               src={weatherData.icon}
@@ -74,15 +80,15 @@ const Weather = () => {
         </div>
       )}
       <div className=" flex flex-col justify-center p-5 items-center  h-2/3">
-        <div className="w-full m-5 flex flex-col justify-center items-center">
-          <ul className="flex justify-around">
+        <div className="bg-white/30 backdrop-blur-md p-5 rounded-lg shadow-lg w-full flex flex-col items-center">
+          <ul className="flex w-full justify-around">
             <li>now</li>
             <li>2am</li>
             <li>now</li>
             <li>2am</li>
             <li>now</li>
           </ul>
-          <ul className="flex">
+          <ul className="flex w-full justify-around">
             <li>2am</li>
             <li>now</li>
             <li>2am</li>
