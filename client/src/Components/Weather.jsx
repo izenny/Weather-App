@@ -27,6 +27,11 @@ const Weather = () => {
     };
     weatherFetch();
   }, [location]);
+  useEffect(()=>{
+    const fetchHistory = async()=>{
+      const history = await fetchHistory(date)
+    }
+  })
 
   const formatDateTime = (dateTimeString) => {
     const date = new Date(dateTimeString);
@@ -38,7 +43,7 @@ const Weather = () => {
   return (
     <div className="bg-slate-300 h-full md:h-2/3 flex-col md:flex-row flex justify-center items-center">
       {weatherData ? (
-        <div className="bg-orange-200 font-mono text-orange-600 flex flex-col w-3/4 h-2/3 md:w-1/3 justify-center items-center m-5 rounded-3xl">
+        <div className="bg-orange-200 font-mono text-orange-600 flex flex-col w-3/4 h-1/3 md:h-2/3 md:w-1/3 justify-around p-3 items-center m-5 rounded-3xl">
           <h2 className="text-2xl font-serif">Today</h2>
           <div className="flex items-center">
             <img
@@ -64,12 +69,12 @@ const Weather = () => {
           <p className="text-lg">{formatDateTime(weatherData.date)}</p>
         </div>
       ) : (
-        <div className="bg-orange-200 text-orange-600 flex flex-col h-2/3 w-1/3 justify-around items-center m-5 rounded-3xl">
+        <div className="bg-orange-200 text-orange-600 flex flex-col h-2/3  w-1/3 justify-around items-center m-5 rounded-3xl">
           <p className="text-lg">{error ? error : "Loading..."}</p>
         </div>
       )}
-      <div className="w-1/2">
-        <div className="w-full flex flex-col justify-center items-center">
+      <div className="bg-slate-400 flex flex-col justify-center p-5 items-center  h-2/3">
+        <div className="w-full m-5 flex flex-col justify-center items-center">
           <ul className="flex justify-around">
             <li>now</li>
             <li>2am</li>
