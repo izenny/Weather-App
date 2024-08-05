@@ -1,7 +1,6 @@
 const axios = require('axios');
 const Weather = require('../Modals/WeatherSchema');
-// const dotenv = require('dotenv')
-// dotenv.config()
+
 exports.createWeather = async (req, res) => {
   const { location, temperature, description, icon, date } = req.body;
   try {
@@ -15,10 +14,10 @@ exports.createWeather = async (req, res) => {
     await newWeather.save();
     res.status(201).json(newWeather);
   } catch (error) {
+    console.log('Error saving weather data:', error);
     res.status(500).json({ error: 'Error saving weather data' });
   }
 };
-
 exports.getWeather = async (req, res) => {
   const { location, from, to } = req.query;
   try {
